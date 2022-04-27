@@ -1,24 +1,43 @@
 /*SASS*/
 
+/*mixin*/
+@mixin fuente{
+  font-family: 'Roboto', sans-serif;
+}
+  
+
+/*MAP*/
+$cuerpo:(
+    vista:grid,
+    tamano: 1025px
+);
+
 /*header y div de logos*/
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: map-get($cuerpo, tamano)) {
+  .principal{
+    
+    display: map-get($cuerpo, vista);
+    grid-template-areas:
+       "logo  logo logo2"
+       "menu menu menu"
+       "contenidos contenidos contenidos"
+       "footer footer footer";
+    grid-template-rows: auto  auto auto auto; 
+    grid-template-columns: auto auto auto;
+    background-image:url('../img/fondo.jpg');
+    color: whitesmoke;
+    @include fuente;
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+  /*extend*/
 body{
-  display: grid;
-  grid-template-areas:
-     "logo  logo logo2"
-     "menu menu menu"
-     "contenidos contenidos contenidos"
-     "footer footer footer";
-  grid-template-rows: auto  auto auto auto; 
-  grid-template-columns: auto auto auto;
-  background-image:url('../img/fondo.jpg');
-  color: whitesmoke;
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 500px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  @extend .principal;
 }
 
 #logo{
@@ -30,6 +49,7 @@ body{
   background: url('../img/header.png'); 
   background-repeat: no-repeat;
 }
+
 #logo2{
     grid-area: logo2;
     height:auto;
