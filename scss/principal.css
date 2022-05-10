@@ -185,7 +185,7 @@
     grid-area: logo2;
     height: 25px;
     width: 75px;
-    float: left;
+    float: right;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
